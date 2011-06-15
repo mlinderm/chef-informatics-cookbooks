@@ -1,0 +1,14 @@
+maintainer       "Michael Linderman"
+maintainer_email "michael.d.linderman@gmail.com"
+license          "Apache 2.0"
+description      "Installs/Configures R"
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
+version          "0.0.1"
+
+recipe            "r", "Installs R base packages"
+
+depends "apt"
+
+%w{ ubuntu }.each do |os|
+  supports os
+end
