@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'bundler/setup'
 require 'chef'
 
 # Adapted from Chef-generated Rakefile
