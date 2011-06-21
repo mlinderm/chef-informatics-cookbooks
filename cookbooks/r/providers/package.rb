@@ -4,8 +4,12 @@ action :install do
 	bash "R_CRAN_BioC_package_install" do
 		user "root"
 		code <<-EOH
+		R_CMD=`which R 2> /dev/null`
+		if [ $? -ne 0 ]; then
+			R_CMD=/usr/local/bin/R
+		fi
 		set -e
-		cat <<-EOF | R --no-save --no-restore -f -
+		cat <<-EOF | $R_CMD --no-save --no-restore -f -
 		if (!("#{new_resource.package_name}" %in% installed.packages())) {
 			source("http://bioconductor.org/biocLite.R") 
 			biocLite("#{new_resource.package_name}")
@@ -23,8 +27,12 @@ action :remove do
 	bash "R_package_remove" do
 		user "root"
 		code <<-EOH
+		R_CMD=`which R 2> /dev/null`
+		if [ $? -ne 0 ]; then
+			R_CMD=/usr/local/bin/R
+		fi
 		set -e
-		cat <<-EOF | R --no-save --no-restore -f -
+		cat <<-EOF | $R_CMD --no-save --no-restore -f -
 		package <- installed.packages()["#{new_resource.package_name}",]
 		if (!is.na(package)) {
 			remove.packages("#{new_resource.package_name}", package['LibPath'])

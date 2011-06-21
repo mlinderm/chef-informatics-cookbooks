@@ -8,7 +8,8 @@ version          "0.0.1"
 recipe            "r", "Installs R base packages"
 
 depends "apt"
+depends "build-essential"
 
-%w{ ubuntu }.each do |os|
+%w{ ubuntu centos redhat fedora }.each do |os|
   supports os
 end

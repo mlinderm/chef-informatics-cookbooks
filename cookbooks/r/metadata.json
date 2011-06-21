@@ -6,10 +6,14 @@
   "maintainer_email": "michael.d.linderman@gmail.com",
   "license": "Apache 2.0",
   "platforms": {
-    "ubuntu": ">= 0.0.0"
+    "ubuntu": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "fedora": ">= 0.0.0"
   },
   "dependencies": {
-    "apt": ">= 0.0.0"
+    "apt": ">= 0.0.0",
+    "build-essential": ">= 0.0.0"
   },
   "recommendations": {
   },

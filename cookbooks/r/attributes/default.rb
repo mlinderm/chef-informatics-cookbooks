@@ -1,1 +1,1 @@
-default[:R][:CRAN][:default] = "http://cran.r-project.org"
+default[:R][:CRAN][:default] = "cran.r-project.org"
