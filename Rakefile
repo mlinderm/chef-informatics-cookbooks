@@ -52,7 +52,7 @@ task :upload_cookbooks do
 			:token => token
 		}
 		data = JSON.parse(res)
-		res = RestClient.post "http://github.s3.amazonaws.com/", {
+		res = RestClient.post "https://github.s3.amazonaws.com/", {
 			:Filename => File.basename($tarball_path),
 			:policy => data["policy"],
 			:success_action_status => 201,
